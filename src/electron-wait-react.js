@@ -12,7 +12,7 @@ const tryConnection = () => client.connect({port: port}, () => {
       console.log('starting electron');
       startedElectron = true;
       const exec = require('child_process').exec;
-      exec('cross-env NODE_ENV=development npm run electron');
+      exec('cross-env NODE_ENV=development npm start');
     }
   }
 );

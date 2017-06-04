@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "electron": "electron .",
+    "start": "electron .",
     "electron-start": "node src/electron-wait-react",
     "react-start": "BROWSER=none react-scripts start"
   }
