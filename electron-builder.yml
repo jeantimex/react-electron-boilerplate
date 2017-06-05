@@ -1,0 +1,12 @@
+appId: com.example.app
+copyright: jeantimex
+productName: Electron React Demo
+
+asar: true
+
+directories:
+  buildResources: resources/
+  output: dist/
+
+files:
+  - build/

@@ -1,0 +1,14 @@
+{
+  "name": "react-electron",
+  "description": "React Electron",
+  "version": "0.1.0",
+  "author": {
+    "name": "Yong Su",
+    "email": "jean.timex@gmail.com",
+    "url": "https://github.com/jeantimex"
+  },
+  "main": "./main.js",
+  "license": "MIT",
+  "devDependencies": {
+  }
+}

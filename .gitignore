@@ -59,4 +59,4 @@ typings/
 
 # Compiled output
 build
-release
+dist

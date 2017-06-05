@@ -1,10 +1,25 @@
 {
-  "name": "baby-desktop",
-  "productName": "Electron React",
+  "name": "react-electron-boilerplate",
+  "description": "React Electron boilerplate",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Yong Su",
+    "email": "jean.timex@gmail.com",
+    "url": "https://github.com/jeantimex"
+  },
   "homepage": "./",
-  "main": "src/electron-starter.js",
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "dev": "nf start -p 3000",
+    "build": "react-scripts build",
+    "dist": "build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "start": "yarn install && electron ./app",
+    "electron-start": "node scripts/electron-wait-react",
+    "react-start": "BROWSER=none react-scripts start"
+  },
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
@@ -13,17 +28,8 @@
     "async": "^2.4.1",
     "cross-env": "^5.0.0",
     "electron": "^1.6.10",
+    "electron-builder": "^18.3.5",
     "foreman": "^2.0.0",
     "react-scripts": "1.0.7"
-  },
-  "scripts": {
-    "dev": "nf start -p 3000",
-    "build": "react-scripts build",
-    "release": "node scripts/release",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "start": "electron .",
-    "electron-start": "node src/electron-wait-react",
-    "react-start": "BROWSER=none react-scripts start"
   }
 }
