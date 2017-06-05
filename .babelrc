@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    "transform-class-properties",
+    "transform-runtime"
+  ],
+  "presets": [
+    "latest",
+    ["es2015", {
+      "modules": false
+    }],
+    "stage-0",
+    "react"
+  ]
+}
