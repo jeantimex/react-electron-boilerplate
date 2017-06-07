@@ -113,7 +113,6 @@ export default (env) => {
       extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
       modules: [
         path.resolve('node_modules')
-        //rendererPath
       ],
       alias: {
         components: componentsPath
