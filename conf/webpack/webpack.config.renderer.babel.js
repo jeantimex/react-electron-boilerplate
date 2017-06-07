@@ -2,9 +2,8 @@ import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-const sourcePath = path.resolve('src');
+const sourcePath = path.resolve('src/renderer');
 const outputPath = path.resolve('app/dist');
-const rendererPath = path.resolve('src/renderer');
 const componentsPath = path.resolve('src/renderer/components');
 
 export default (env) => {
@@ -67,7 +66,7 @@ export default (env) => {
     context: sourcePath,
 
     entry: {
-      app: './renderer/index.js',
+      app: './index.js',
       vendor: ['react']
     },
 
@@ -109,6 +108,7 @@ export default (env) => {
         },
       ],
     },
+
     resolve: {
       extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
       modules: [
@@ -128,7 +128,7 @@ export default (env) => {
     },
 
     devServer: {
-      contentBase: rendererPath,
+      contentBase: sourcePath,
       disableHostCheck: true,
       historyApiFallback: true,
       host: 'localhost',

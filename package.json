@@ -8,11 +8,15 @@
     "url": "https://github.com/jeantimex"
   },
   "scripts": {
+    "start": "electron app/dist/main.bundle.js",
     "clean": "rimraf app/dist",
-    "dev": "webpack-dev-server --config conf/webpack/webpack.config.babel.js",
-    "prod": "cross-env NODE_ENV=production webpack-dev-server --config conf/webpack/webpack.config.babel.js --env.prod=true",
-    "build:bundle": "cross-env NODE_ENV=production webpack --config conf/webpack/webpack.config.babel.js --env.prod=true",
-    "build": "npm run clean && npm run build:bundle"
+    "dev:main": "webpack --config conf/webpack/webpack.config.main.babel.js",
+    "dev:renderer": "webpack-dev-server --config conf/webpack/webpack.config.renderer.babel.js",
+    "dev": "nf start -p 3000",
+    "prod:renderer": "cross-env NODE_ENV=production webpack-dev-server --config conf/webpack/webpack.config.renderer.babel.js --env.prod=true",
+    "build:renderer": "cross-env NODE_ENV=production webpack --config conf/webpack/webpack.config.renderer.babel.js --env.prod=true",
+    "build:main": "cross-env NODE_ENV=production webpack --config conf/webpack/webpack.config.main.babel.js --env.prod=true",
+    "build": "npm run clean && npm run build:main && npm run build:renderer"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -27,8 +31,10 @@
     "babel-register": "^6.24.1",
     "cross-env": "^5.0.0",
     "css-loader": "^0.28.4",
+    "electron": "^1.6.10",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.2",
+    "foreman": "^2.0.0",
     "node-sass": "^4.5.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
