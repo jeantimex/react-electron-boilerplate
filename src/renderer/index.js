@@ -9,14 +9,18 @@ import createHistory from 'history/createBrowserHistory';
 import store from 'store';
 
 // App components
-//import App from 'components/app';
 import Todos from 'components/todos/Todos';
 
 const history = createHistory();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Todos />
+    { /* ConnectedRouter will use the store from Provider automatically */ }
+    <ConnectedRouter history={ history }>
+      <Switch>
+        <Route exact path='/' component={ Todos } />
+      </Switch>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );
