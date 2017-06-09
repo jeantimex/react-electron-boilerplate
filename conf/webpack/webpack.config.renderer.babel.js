@@ -4,7 +4,6 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const sourcePath = path.resolve('src/renderer');
 const outputPath = path.resolve('app/dist');
-const componentsPath = path.resolve('src/renderer/components');
 
 export default (env) => {
   const nodeEnv = env && env.prod ? 'production' : 'development';
@@ -65,6 +64,8 @@ export default (env) => {
     devtool: isProd ? 'source-map' : 'inline-source-map',
     context: sourcePath,
 
+    target: 'electron-renderer',
+
     entry: {
       app: './index.js',
       vendor: ['react']
@@ -112,10 +113,14 @@ export default (env) => {
     resolve: {
       extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
       modules: [
-        path.resolve('node_modules')
+        path.resolve('node_modules'),
+        sourcePath
       ],
       alias: {
-        components: componentsPath
+        actions: path.resolve('src/renderer/actions'),
+        components: path.resolve('src/renderer/components'),
+        reducers: path.resolve('src/renderer/reducers'),
+        store: path.resolve('src/renderer/store'),
       }
     },
 
