@@ -64,8 +64,6 @@ export default (env) => {
     devtool: isProd ? 'source-map' : 'inline-source-map',
     context: sourcePath,
 
-    target: 'electron-renderer',
-
     entry: {
       app: './index.js',
       vendor: ['react']
