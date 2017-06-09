@@ -5,12 +5,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
+import createHistory from 'history/createHashHistory';
 import store from 'store';
 
 // App components
 import Todos from 'components/todos/Todos';
 
+// Browser history
 const history = createHistory();
 
 ReactDOM.render(
