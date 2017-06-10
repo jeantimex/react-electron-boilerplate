@@ -60,6 +60,10 @@ export default (env) => {
       filename: '[name].bundle.js',
     },
 
+    externals(context, request, callback) {
+      callback(null, request.charAt(0) === '.' ? false : `require("${request}")`);
+    },
+
     module: {
       rules: [
         {
