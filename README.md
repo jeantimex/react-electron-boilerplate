@@ -35,6 +35,8 @@ Facebook's painless JavaScript test runner, no need to configure Karma Webpack, 
 2. Run `yarn` or `npm install` to install the dependencies
 3. Run `yarn dev` or `npm run dev` to see the example electron app
 
+![rocket](docs/images/devtools.png)<br />
+
 ## Documents
 
 - [Electron](docs/electron.md)
