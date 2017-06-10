@@ -11,7 +11,7 @@ import {
   toggleTodoItemAction,
 } from 'actions';
 
-import './todos.scss';
+import 'todomvc-app-css/index.css';
 
 export class Todos extends Component {
 
@@ -108,6 +108,7 @@ export class Todos extends Component {
             <li>
               <a
                 className={ filterType === 'all' ? 'selected' : '' }
+                href="#"
                 onClick={() => this.handleFilterTypeChange('all')}
               >
                 All
@@ -116,6 +117,7 @@ export class Todos extends Component {
             <li>
               <a
                 className={ filterType === 'active' ? 'selected' : '' }
+                href="#"
                 onClick={() => this.handleFilterTypeChange('active')}
               >
                 Active
@@ -124,6 +126,7 @@ export class Todos extends Component {
             <li>
               <a
                 className={ filterType === 'completed' ? 'selected' : '' }
+                href="#"
                 onClick={() => this.handleFilterTypeChange('completed')}
               >
                 Completed

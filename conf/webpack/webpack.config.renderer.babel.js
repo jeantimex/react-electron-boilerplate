@@ -77,18 +77,11 @@ export default (env) => {
     module: {
       rules: [
         {
-          test: /\.html$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'file-loader',
-            query: {
-              name: '[name].[ext]'
-            },
-          },
-        },
-        {
           test: /\.s?css$/,
-          exclude: /node_modules/,
+          include: [
+            sourcePath,
+            path.resolve('node_modules/todomvc-app-css')
+          ],
           use: extractSass.extract({
             use: [{
               loader: 'css-loader'
@@ -109,7 +102,7 @@ export default (env) => {
     },
 
     resolve: {
-      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
+      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx', '.css'],
       modules: [
         path.resolve('node_modules'),
         sourcePath
