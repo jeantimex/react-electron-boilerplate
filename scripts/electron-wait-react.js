@@ -1,4 +1,4 @@
-const net = require('net');
+import net from 'net';
 const port = process.env.PORT ? (process.env.PORT - 100) : 3000;
 
 process.env.ELECTRON_START_URL = `http://localhost:${port}`;

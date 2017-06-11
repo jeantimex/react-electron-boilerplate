@@ -7,15 +7,60 @@
     "email": "jean.timex@gmail.com",
     "url": "https://github.com/jeantimex"
   },
+  "build": {
+    "productName": "Todo App",
+    "appId": "com.jeantimex.todo",
+    "asar": true,
+    "files": [
+      "dist/",
+      "node_modules/",
+      "index.html",
+      "package.json"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ]
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    }
+  },
   "scripts": {
+    "postinstall": "install-app-deps",
     "start": "electron app/dist/main.bundle.js",
-    "clean": "rimraf app/dist",
+    "clean": "del app/dist release",
     "dev:main": "webpack --config conf/webpack/webpack.config.main.babel.js",
     "dev:renderer": "webpack-dev-server --config conf/webpack/webpack.config.renderer.babel.js",
     "dev": "nf start -p 3000",
-    "build:renderer": "cross-env NODE_ENV=production webpack --config conf/webpack/webpack.config.renderer.babel.js --env.prod=true",
-    "build:main": "cross-env NODE_ENV=production webpack --config conf/webpack/webpack.config.main.babel.js --env.prod=true",
-    "build": "npm run clean && npm run build:main && npm run build:renderer"
+    "build:renderer": "webpack -p --config conf/webpack/webpack.config.renderer.babel.js --env.prod=true",
+    "build:main": "webpack -p --config conf/webpack/webpack.config.main.babel.js --env.prod=true",
+    "build": "npm run clean && concurrently \"npm run build:main\" \"npm run build:renderer\"",
+    "pack:win": "npm run build && buil --win --x64",
+    "pack:linux": "npm run build && build --linux",
+    "pack:mac": "npm run build && build --mac",
+    "pack": "del release && npm run build && build -mwl"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -30,10 +75,12 @@
     "babel-register": "^6.24.1",
     "babel-runtime": "^6.23.0",
     "classnames": "^2.2.5",
+    "concurrently": "^3.4.0",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
+    "del-cli": "^1.0.0",
     "electron": "^1.6.10",
-    "electron-is": "^2.4.0",
+    "electron-builder": "^18.6.2",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
     "foreman": "^2.0.0",
@@ -50,7 +97,6 @@
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
-    "rimraf": "^2.6.1",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.2",
     "todomvc-app-css": "^2.1.0",
