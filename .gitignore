@@ -58,5 +58,5 @@ typings/
 .env
 
 # Compiled output
-dist
 app/dist
+release

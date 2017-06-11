@@ -1,0 +1,17 @@
+{
+  "name": "todo-app",
+  "version": "0.1.0",
+  "productName": "Todo App",
+  "description": "Another app built by React Electron Boilerplate",
+  "main": "dist/main.bundle.js",
+  "author": {
+    "name": "Yong Su",
+    "email": "jean.timex@gmail.com",
+    "url": "https://github.com/jeantimex"
+  },
+  "dependencies": {
+    "electron-config": "^1.0.0",
+    "electron-is": "^2.4.0",
+    "electron-log": "^2.2.6"
+  }
+}

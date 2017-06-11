@@ -60,10 +60,6 @@ export default (env) => {
       filename: '[name].bundle.js',
     },
 
-    externals(context, request, callback) {
-      callback(null, request.charAt(0) === '.' ? false : `require("${request}")`);
-    },
-
     module: {
       rules: [
         {
@@ -86,9 +82,13 @@ export default (env) => {
 
     plugins,
 
+    externals(context, request, callback) {
+      callback(null, request.charAt(0) === '.' ? false : `require("${request}")`);
+    },
+
     performance: isProd && {
       maxAssetSize: 500000,
-      maxEntrypointSize: 300000,
+      maxEntrypointSize: 500000,
       hints: 'warning',
     }
   };

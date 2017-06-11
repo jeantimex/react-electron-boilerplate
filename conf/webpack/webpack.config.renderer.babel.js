@@ -117,9 +117,20 @@ export default (env) => {
 
     plugins,
 
+    externals(context, request, callback) {
+      let isExternal = false;
+      const load = [
+        'electron',
+      ];
+      if (load.includes(request)) {
+        isExternal = `require("${request}")`;
+      }
+      callback(null, isExternal);
+    },
+
     performance: isProd && {
       maxAssetSize: 500000,
-      maxEntrypointSize: 300000,
+      maxEntrypointSize: 500000,
       hints: 'warning',
     },
 

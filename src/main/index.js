@@ -1,5 +1,4 @@
 import electron from 'electron';
-import is from 'electron-is';
 import path from 'path';
 import url from 'url';
 
