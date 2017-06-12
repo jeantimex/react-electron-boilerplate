@@ -26,7 +26,7 @@ export default (env) => {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({}),
-    extractSass
+    extractSass,
   ];
 
   if (isProd) {
@@ -52,11 +52,11 @@ export default (env) => {
           comments: false,
         },
         sourceMap: true,
-      })
+      }),
     );
   } else {
     plugins.push(
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
     );
   }
 
@@ -66,7 +66,7 @@ export default (env) => {
 
     entry: {
       app: './index.js',
-      vendor: ['react']
+      vendor: ['react'],
     },
 
     output: {
@@ -80,22 +80,22 @@ export default (env) => {
           test: /\.s?css$/,
           include: [
             sourcePath,
-            path.resolve('node_modules/todomvc-app-css')
+            path.resolve('node_modules/todomvc-app-css'),
           ],
           use: extractSass.extract({
             use: [{
-              loader: 'css-loader'
+              loader: 'css-loader',
             }, {
-              loader: 'sass-loader'
+              loader: 'sass-loader',
             }],
-            fallback: 'style-loader'
-          })
+            fallback: 'style-loader',
+          }),
         },
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: [
-            'babel-loader'
+            'babel-loader',
           ],
         },
       ],
@@ -105,14 +105,14 @@ export default (env) => {
       extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx', '.css'],
       modules: [
         path.resolve('node_modules'),
-        sourcePath
+        sourcePath,
       ],
       alias: {
         actions: path.resolve('src/renderer/actions'),
         components: path.resolve('src/renderer/components'),
         reducers: path.resolve('src/renderer/reducers'),
         store: path.resolve('src/renderer/store'),
-      }
+      },
     },
 
     plugins,
@@ -154,6 +154,6 @@ export default (env) => {
         version: false,
         warnings: true,
       },
-    }
+    },
   };
 };

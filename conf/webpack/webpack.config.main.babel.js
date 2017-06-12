@@ -14,8 +14,8 @@ export default (env) => {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
-      DIR_NAME: '__dirname',
-    })
+      $dirname: '__dirname',
+    }),
   ];
 
   if (isProd) {
@@ -41,7 +41,7 @@ export default (env) => {
           comments: false,
         },
         sourceMap: true,
-      })
+      }),
     );
   }
 
@@ -52,7 +52,7 @@ export default (env) => {
     target: 'electron',
 
     entry: {
-      main: './index.js'
+      main: './index.js',
     },
 
     output: {
@@ -66,18 +66,18 @@ export default (env) => {
           test: /\.js$/,
           exclude: /node_modules/,
           use: [
-            'babel-loader'
+            'babel-loader',
           ],
-        }
-      ]
+        },
+      ],
     },
 
     resolve: {
       extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
       modules: [
-        path.resolve('node_modules')
+        path.resolve('node_modules'),
       ],
-      alias: {}
+      alias: {},
     },
 
     plugins,
@@ -90,6 +90,6 @@ export default (env) => {
       maxAssetSize: 500000,
       maxEntrypointSize: 500000,
       hints: 'warning',
-    }
+    },
   };
 };
