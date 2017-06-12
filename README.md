@@ -1,6 +1,6 @@
 # React Electron Boilerplate
 
-![rocket](docs/images/rocket.png)<br />
+![rocket](docs/images/rocket.png)
 
 ## About
 
@@ -22,6 +22,12 @@ Save your time in putting Electron, React, Redux, Router, Webpack, Jest and loca
 **Basic react eco system**<br />
 The scaffolded project will include the latest React, Redux, React Router and React Intl.
 
+**Installer distribution**<br/>
+We use [Electron Builder](https://github.com/electron-userland/electron-builder) and its [two package.json structure](https://github.com/electron-userland/electron-builder/wiki/Two-package.json-Structure).
+
+- [Link](https://github.com/electron-userland/electron-builder/blob/master/docs/Multi%20Platform%20Build.md) for prerequisites of generating installers on different platforms.
+- [Link](https://github.com/electron-userland/electron-builder/wiki/Code-Signing) for code signing.
+
 **Webpack 2**<br />
 Enjoy the tree shaking feature in Webpack 2.
 
@@ -37,9 +43,20 @@ Facebook's painless JavaScript test runner, no need to configure Karma Webpack, 
 
 ![rocket](docs/images/devtools.png)<br />
 
+**Build platform installer**<br />
+- Mac: Run `yarn run pack:mac`
+- Windows: Run `yarn run pack:win`
+- Linux: Run `yarn run pack:linux`
+
+Here is an example of launching the dmg file on Mac:
+
+![rocket](docs/images/mac-dmg.png)
+
 ## Documents
 
 - [Electron](docs/electron.md)
+  - [Folder structure](docs/electron.md)
+  - [Electron Builder](docs/electron.md)
 - [Babel](docs/babel.md)
 - [React](docs/react.md)
   - [Redux](docs/redux.md)
