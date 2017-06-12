@@ -6,22 +6,23 @@ import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createHashHistory';
-import store from 'store';
+import getStore from 'store';
 
 // App components
 import Todos from 'components/todos/Todos';
 
 // Browser history
 const history = createHistory();
+const store = getStore(history);
 
 ReactDOM.render(
   <Provider store={store}>
     { /* ConnectedRouter will use the store from Provider automatically */ }
-    <ConnectedRouter history={ history }>
+    <ConnectedRouter history={history}>
       <Switch>
-        <Route exact path='/' component={ Todos } />
+        <Route exact path="/" component={Todos} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

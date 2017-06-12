@@ -55,7 +55,7 @@ export class Todos extends Component {
 
     const items = todoItems.map((item) => {
       const className = classNames('todo-item', {
-        completed: item.completed
+        completed: item.completed,
       });
 
       return (
@@ -71,12 +71,11 @@ export class Todos extends Component {
               onChange={this.handleChange}
               type="checkbox"
             />
-            <label>{item.text}</label>
+            <label htmlFor={item.id}>{item.text}</label>
             <button
               className="destroy"
               onClick={() => this.handleClose(item.id)}
-            >
-            </button>
+            />
           </div>
         </li>
       );
@@ -107,8 +106,7 @@ export class Todos extends Component {
           <ul className="filters">
             <li>
               <a
-                className={ filterType === 'all' ? 'selected' : '' }
-                href="#"
+                className={filterType === 'all' ? 'selected' : ''}
                 onClick={() => this.handleFilterTypeChange('all')}
               >
                 All
@@ -116,8 +114,7 @@ export class Todos extends Component {
             </li>
             <li>
               <a
-                className={ filterType === 'active' ? 'selected' : '' }
-                href="#"
+                className={filterType === 'active' ? 'selected' : ''}
                 onClick={() => this.handleFilterTypeChange('active')}
               >
                 Active
@@ -125,8 +122,7 @@ export class Todos extends Component {
             </li>
             <li>
               <a
-                className={ filterType === 'completed' ? 'selected' : '' }
-                href="#"
+                className={filterType === 'completed' ? 'selected' : ''}
                 onClick={() => this.handleFilterTypeChange('completed')}
               >
                 Completed
@@ -198,5 +194,5 @@ export const mapDispatchToProps = dispatch => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Todos);

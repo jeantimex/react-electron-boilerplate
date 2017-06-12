@@ -14,22 +14,22 @@ let mainWindow;
 const installExtensions = () => {
   const extensions = [
     'redux-devtools/2.15.1_0',
-    'react-developer-tools/2.3.3_0'
+    'react-developer-tools/2.3.3_0',
   ];
   extensions.map(extension => BrowserWindow.addDevToolsExtension(
-    path.join(DIR_NAME, '../../extensions', extension),
+    path.join($dirname, '../../extensions', extension),
   ));
 };
 
 const createWindow = () => {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
   // and load the index.html of the app.
   const startUrl = process.env.ELECTRON_START_URL || url.format({
-    pathname: path.join(DIR_NAME, '../index.html'),
+    pathname: path.join($dirname, '../index.html'),
     protocol: 'file:',
-    slashes: true
+    slashes: true,
   });
 
   mainWindow.loadURL(startUrl);
@@ -41,7 +41,7 @@ const createWindow = () => {
   }
 
   // Emitted when the window is closed.
-  mainWindow.on('closed', function () {
+  mainWindow.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
