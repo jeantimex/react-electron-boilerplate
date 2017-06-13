@@ -43,10 +43,33 @@ Facebook's painless JavaScript test runner, no need to configure Karma Webpack, 
 
 ![rocket](docs/images/devtools.png)<br />
 
+4. Run `yarn run test` to trigger tests with coverage report
+```
+ PASS  tests/renderer/components/todos/Todos.spec.js
+ PASS  tests/renderer/reducers/TodoReducer.spec.js
+ PASS  tests/renderer/actions/index.spec.js
+
+Test Suites: 3 passed, 3 total
+Tests:       24 passed, 24 total
+Snapshots:   0 total
+Time:        2.728s
+Ran all test suites.
+------------------|----------|----------|----------|----------|----------------|
+File              |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+------------------|----------|----------|----------|----------|----------------|
+All files         |      100 |    86.36 |      100 |      100 |                |
+ components/todos |      100 |       80 |      100 |      100 |                |
+  Todos.js        |      100 |       80 |      100 |      100 |    109,117,125 |
+ reducers         |      100 |      100 |      100 |      100 |                |
+  TodoReducer.js  |      100 |      100 |      100 |      100 |                |
+------------------|----------|----------|----------|----------|----------------|
+```
+
 **Build platform installer**<br />
 - Mac: Run `yarn run pack:mac`
 - Windows: Run `yarn run pack:win`
 - Linux: Run `yarn run pack:linux`
+- All platforms: Run `yarn run pack`
 
 Here is an example of launching the dmg file on Mac:
 
