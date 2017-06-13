@@ -1,0 +1,26 @@
+{
+  "moduleNameMapper": {
+    "^actions(.*)$": "<rootDir>/src/renderer/actions$1",
+    "^components(.*)$": "<rootDir>/src/renderer/components$1",
+    "^reducers(.*)$": "<rootDir>/src/renderer/reducers$1",
+    "store": "<rootDir>/src/renderer/store",
+    "enzyme-intl": "<rootDir>/scripts/enzyme-intl.js",
+    "\\.(css|scss)$": "identity-obj-proxy"
+  },
+  "collectCoverageFrom" : [
+    "src/renderer/**/*.js",
+    "!**/index.js"
+  ],
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "<rootDir>/scripts"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 80,
+      "functions": 90,
+      "lines": 90,
+      "statements": 90
+    }
+  }
+}
