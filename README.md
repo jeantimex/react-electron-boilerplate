@@ -43,7 +43,7 @@ Facebook's painless JavaScript test runner, no need to configure Karma Webpack, 
 
 ![rocket](docs/images/devtools.png)<br />
 
-4. Run `yarn run test` to trigger tests with coverage report
+4. Run `yarn run test` to trigger eslint, jest with coverage report
 ```
  PASS  tests/renderer/components/todos/Todos.spec.js
  PASS  tests/renderer/reducers/TodoReducer.spec.js
