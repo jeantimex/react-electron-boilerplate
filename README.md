@@ -1,5 +1,10 @@
 # React Electron Boilerplate
 
+[![dependencies Status](https://david-dm.org/jeantimex/react-electron-boilerplate/status.svg)](https://david-dm.org/jeantimex/react-electron-boilerplate)
+[![devDependencies Status](https://david-dm.org/jeantimex/react-electron-boilerplate/dev-status.svg)](https://david-dm.org/jeantimex/react-electron-boilerplate?type=dev)
+[![Build Status](https://travis-ci.org/jeantimex/react-electron-boilerplate.svg?branch=master)](https://travis-ci.org/jeantimex/react-electron-boilerplate)
+[![Coverage Status](https://coveralls.io/repos/github/jeantimex/react-electron-boilerplate/badge.svg)](https://coveralls.io/github/jeantimex/react-electron-boilerplate)
+
 ![rocket](docs/images/rocket.png)
 
 ## About
