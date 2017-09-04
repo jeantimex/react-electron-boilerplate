@@ -44,7 +44,7 @@ Facebook's painless JavaScript test runner, no need to configure Karma Webpack, 
 **Get up and running**<br />
 1. Clone this repo using `git clone https://github.com/jeantimex/react-electron-boilerplate.git`
 2. Run `yarn` or `npm install` to install the dependencies
-3. Run `yarn dev` or `npm run dev` to see the example electron app
+3. Run `yarn run dev` or `npm run dev` to see the example electron app
 
 ![rocket](docs/images/devtools.png)<br />
 
@@ -55,16 +55,16 @@ Facebook's painless JavaScript test runner, no need to configure Karma Webpack, 
  PASS  tests/renderer/actions/index.spec.js
 
 Test Suites: 3 passed, 3 total
-Tests:       24 passed, 24 total
+Tests:       28 passed, 28 total
 Snapshots:   0 total
-Time:        2.728s
+Time:        5.811s
 Ran all test suites.
 ------------------|----------|----------|----------|----------|----------------|
 File              |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
 ------------------|----------|----------|----------|----------|----------------|
-All files         |      100 |    86.36 |      100 |      100 |                |
- components/todos |      100 |       80 |      100 |      100 |                |
-  Todos.js        |      100 |       80 |      100 |      100 |    109,117,125 |
+All files         |      100 |      100 |      100 |      100 |                |
+ components/todos |      100 |      100 |      100 |      100 |                |
+  Todos.js        |      100 |      100 |      100 |      100 |                |
  reducers         |      100 |      100 |      100 |      100 |                |
   TodoReducer.js  |      100 |      100 |      100 |      100 |                |
 ------------------|----------|----------|----------|----------|----------------|
