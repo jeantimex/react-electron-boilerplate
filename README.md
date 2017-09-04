@@ -33,8 +33,8 @@ We use [Electron Builder](https://github.com/electron-userland/electron-builder)
 - [Link](https://github.com/electron-userland/electron-builder/blob/master/docs/Multi%20Platform%20Build.md) for prerequisites of generating installers on different platforms.
 - [Link](https://github.com/electron-userland/electron-builder/wiki/Code-Signing) for code signing.
 
-**Webpack 2**<br />
-Enjoy the tree shaking feature in Webpack 2.
+**Webpack**<br />
+Enjoy the tree shaking feature in Webpack.
 
 **Jest**<br />
 Facebook's painless JavaScript test runner, no need to configure Karma Webpack, no need to use Sinon and Babel Rewire.
