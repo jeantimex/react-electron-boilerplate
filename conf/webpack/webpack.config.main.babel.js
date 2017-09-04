@@ -4,7 +4,7 @@ import path from 'path';
 const sourcePath = path.resolve('src/main');
 const outputPath = path.resolve('app/dist');
 
-export default (env) => {
+export default env => {
   const nodeEnv = env && env.prod ? 'production' : 'development';
   const isProd = nodeEnv === 'production';
 
@@ -41,7 +41,7 @@ export default (env) => {
           comments: false,
         },
         sourceMap: true,
-      }),
+      })
     );
   }
 
@@ -65,25 +65,30 @@ export default (env) => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: [
-            'babel-loader',
-          ],
+          use: ['babel-loader'],
         },
       ],
     },
 
     resolve: {
-      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
-      modules: [
-        path.resolve('node_modules'),
+      extensions: [
+        '.webpack-loader.js',
+        '.web-loader.js',
+        '.loader.js',
+        '.js',
+        '.jsx',
       ],
+      modules: [path.resolve('node_modules')],
       alias: {},
     },
 
     plugins,
 
     externals(context, request, callback) {
-      callback(null, request.charAt(0) === '.' ? false : `require("${request}")`);
+      callback(
+        null,
+        request.charAt(0) === '.' ? false : `require("${request}")`
+      );
     },
 
     performance: isProd && {

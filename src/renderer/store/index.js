@@ -5,11 +5,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import todoReducer from 'reducers/TodoReducer';
 
-export default (history) => {
-  const middleware = [
-    routerMiddleware(history),
-    thunk,
-  ];
+export default history => {
+  const middleware = [routerMiddleware(history), thunk];
 
   // Add the reducer to your store on the `router` key
   // Also apply our middleware for navigating
@@ -18,8 +15,6 @@ export default (history) => {
       todo: todoReducer,
       router: routerReducer,
     }),
-    composeWithDevTools(
-      applyMiddleware(...middleware),
-    ),
+    composeWithDevTools(applyMiddleware(...middleware))
   );
 };

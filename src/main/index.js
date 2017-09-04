@@ -16,9 +16,11 @@ const installExtensions = () => {
     'redux-devtools/2.15.1_0',
     'react-developer-tools/2.3.3_0',
   ];
-  extensions.map(extension => BrowserWindow.addDevToolsExtension(
-    path.join($dirname, '../../extensions', extension),
-  ));
+  extensions.map(extension =>
+    BrowserWindow.addDevToolsExtension(
+      path.join($dirname, '../../extensions', extension)
+    )
+  );
 };
 
 const createWindow = () => {
@@ -26,11 +28,13 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
   // and load the index.html of the app.
-  const startUrl = process.env.ELECTRON_START_URL || url.format({
-    pathname: path.join($dirname, '../index.html'),
-    protocol: 'file:',
-    slashes: true,
-  });
+  const startUrl =
+    process.env.ELECTRON_START_URL ||
+    url.format({
+      pathname: path.join($dirname, '../index.html'),
+      protocol: 'file:',
+      slashes: true,
+    });
 
   mainWindow.loadURL(startUrl);
 
