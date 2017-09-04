@@ -17,12 +17,12 @@ const store = getStore(history);
 
 ReactDOM.render(
   <Provider store={store}>
-    { /* ConnectedRouter will use the store from Provider automatically */ }
+    {/* ConnectedRouter will use the store from Provider automatically */}
     <ConnectedRouter history={history}>
       <Switch>
         <Route exact path="/" component={Todos} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

@@ -14,8 +14,7 @@ import {
 import 'todomvc-app-css/index.css';
 
 export class Todos extends Component {
-
-  handleKeyPress = (e) => {
+  handleKeyPress = e => {
     const { addTodoItem } = this.props;
     const input = e.target;
     const text = input.value;
@@ -27,42 +26,34 @@ export class Todos extends Component {
     }
   };
 
-  handleChange = (e) => {
+  handleChange = e => {
     const { toggleTodoItem } = this.props;
     const input = e.target;
 
     toggleTodoItem(input.id);
   };
 
-  handleClose = (id) => {
+  handleClose = id => {
     const { deleteTodoItem } = this.props;
 
     deleteTodoItem(id);
   };
 
-  handleFilterTypeChange = (filterType) => {
+  handleFilterTypeChange = filterType => {
     const { setTodoFilterType } = this.props;
-
     setTodoFilterType(filterType);
-  }
+  };
 
   render() {
-    const {
-      todoItems,
-      filterType,
-      activeItemsCount,
-    } = this.props;
+    const { todoItems, filterType, activeItemsCount } = this.props;
 
-    const items = todoItems.map((item) => {
+    const items = todoItems.map(item => {
       const className = classNames('todo-item', {
         completed: item.completed,
       });
 
       return (
-        <li
-          key={item.id}
-          className={className}
-        >
+        <li key={item.id} className={className}>
           <div className="view">
             <input
               className="toggle"
@@ -94,15 +85,11 @@ export class Todos extends Component {
         </header>
 
         <div className="main">
-          <ul className="todo-list">
-            {items}
-          </ul>
+          <ul className="todo-list">{items}</ul>
         </div>
 
         <footer className="footer">
-          <span className="todo-count">
-            { activeItemsCount } items left
-          </span>
+          <span className="todo-count">{activeItemsCount} items left</span>
           <ul className="filters">
             <li>
               <a
@@ -133,7 +120,6 @@ export class Todos extends Component {
       </div>
     );
   }
-
 }
 
 Todos.defaultProps = {
@@ -147,11 +133,13 @@ Todos.defaultProps = {
 };
 
 Todos.propTypes = {
-  todoItems: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    text: PropTypes.string,
-    completed: PropTypes.bool,
-  })),
+  todoItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      text: PropTypes.string,
+      completed: PropTypes.bool,
+    })
+  ),
   filterType: PropTypes.oneOf(['all', 'active', 'completed']),
   addTodoItem: PropTypes.func,
   toggleTodoItem: PropTypes.func,
@@ -160,7 +148,7 @@ Todos.propTypes = {
   activeItemsCount: PropTypes.number,
 };
 
-export const mapStateToProps = (state) => {
+export const mapStateToProps = state => {
   const { items, filterType } = state.todo;
   let todoItems = items.toArray();
 
@@ -178,21 +166,18 @@ export const mapStateToProps = (state) => {
 };
 
 export const mapDispatchToProps = dispatch => ({
-  addTodoItem: (text) => {
+  addTodoItem: text => {
     dispatch(addTodoItemAction(text));
   },
-  toggleTodoItem: (id) => {
+  toggleTodoItem: id => {
     dispatch(toggleTodoItemAction(id));
   },
-  deleteTodoItem: (id) => {
+  deleteTodoItem: id => {
     dispatch(deleteTodoItemAction(id));
   },
-  setTodoFilterType: (filterType) => {
+  setTodoFilterType: filterType => {
     dispatch(setTodoFilterTypeAction(filterType));
   },
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Todos);
+export default connect(mapStateToProps, mapDispatchToProps)(Todos);

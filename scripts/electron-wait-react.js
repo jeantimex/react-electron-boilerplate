@@ -1,21 +1,22 @@
 import net from 'net';
 import child from 'child_process';
 
-const port = process.env.PORT ? (process.env.PORT - 100) : 3000;
+const port = process.env.PORT ? process.env.PORT - 100 : 3000;
 
 process.env.ELECTRON_START_URL = `http://localhost:${port}`;
 
 const client = new net.Socket();
 
 let startedElectron = false;
-const tryConnection = () => client.connect({ port }, () => {
-  client.end();
+const tryConnection = () =>
+  client.connect({ port }, () => {
+    client.end();
 
-  if (!startedElectron) {
-    startedElectron = true;
-    child.exec('npm run start');
-  }
-});
+    if (!startedElectron) {
+      startedElectron = true;
+      child.exec('npm run start');
+    }
+  });
 
 tryConnection();
 

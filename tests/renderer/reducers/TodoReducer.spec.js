@@ -25,11 +25,13 @@ describe('todo reducer', () => {
       },
     });
     const { items } = state;
-    const expected = [{
-      id: '123-456',
-      text: 'release product',
-      completed: false,
-    }];
+    const expected = [
+      {
+        id: '123-456',
+        text: 'release product',
+        completed: false,
+      },
+    ];
     assert.deepEqual(expected, items.toArray());
   });
 
@@ -47,11 +49,13 @@ describe('todo reducer', () => {
       },
     });
     const { items } = state;
-    const expected = [{
-      id: '123-456',
-      text: 'release product',
-      completed: true,
-    }];
+    const expected = [
+      {
+        id: '123-456',
+        text: 'release product',
+        completed: true,
+      },
+    ];
     assert.deepEqual(expected, items.toArray());
   });
 

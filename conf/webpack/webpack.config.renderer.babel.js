@@ -5,7 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 const sourcePath = path.resolve('src/renderer');
 const outputPath = path.resolve('app/dist');
 
-export default (env) => {
+export default env => {
   const nodeEnv = env && env.prod ? 'production' : 'development';
   const isProd = nodeEnv === 'production';
 
@@ -52,12 +52,10 @@ export default (env) => {
           comments: false,
         },
         sourceMap: true,
-      }),
+      })
     );
   } else {
-    plugins.push(
-      new webpack.HotModuleReplacementPlugin(),
-    );
+    plugins.push(new webpack.HotModuleReplacementPlugin());
   }
 
   return {
@@ -78,35 +76,37 @@ export default (env) => {
       rules: [
         {
           test: /\.s?css$/,
-          include: [
-            sourcePath,
-            path.resolve('node_modules/todomvc-app-css'),
-          ],
+          include: [sourcePath, path.resolve('node_modules/todomvc-app-css')],
           use: extractSass.extract({
-            use: [{
-              loader: 'css-loader',
-            }, {
-              loader: 'sass-loader',
-            }],
+            use: [
+              {
+                loader: 'css-loader',
+              },
+              {
+                loader: 'sass-loader',
+              },
+            ],
             fallback: 'style-loader',
           }),
         },
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: [
-            'babel-loader',
-          ],
+          use: ['babel-loader'],
         },
       ],
     },
 
     resolve: {
-      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx', '.css'],
-      modules: [
-        path.resolve('node_modules'),
-        sourcePath,
+      extensions: [
+        '.webpack-loader.js',
+        '.web-loader.js',
+        '.loader.js',
+        '.js',
+        '.jsx',
+        '.css',
       ],
+      modules: [path.resolve('node_modules'), sourcePath],
       alias: {
         actions: path.resolve('src/renderer/actions'),
         components: path.resolve('src/renderer/components'),
@@ -119,9 +119,7 @@ export default (env) => {
 
     externals(context, request, callback) {
       let isExternal = false;
-      const load = [
-        'electron',
-      ];
+      const load = ['electron'];
       if (load.includes(request)) {
         isExternal = `require("${request}")`;
       }
