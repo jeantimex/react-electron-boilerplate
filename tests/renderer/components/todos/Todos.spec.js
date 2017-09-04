@@ -15,7 +15,11 @@ import {
   deleteTodoItemAction,
   setTodoFilterTypeAction,
 } from 'actions';
-import { Todos, mapStateToProps, mapDispatchToProps } from 'pages/todos/Todos';
+import {
+  Todos,
+  mapStateToProps,
+  mapDispatchToProps,
+} from 'components/todos/Todos';
 
 describe('Todos Page', () => {
   let wrapper;
